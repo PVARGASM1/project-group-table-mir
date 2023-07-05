@@ -1,0 +1,42 @@
+.content-table {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.table {
+  border: 1px solid #f0f1f3;
+  border-right: none;
+  border-collapse: collapse;
+  width: 100%;
+  display: inline-block;
+}
+
+.table .row-table {
+  border-bottom: 1px solid #f0f1f3;
+}
+
+.table .header-table {
+  background-color: #f0f1f3;
+  color: #374150;
+  padding: 5px;
+}
+
+.table .product-letter {
+  color: #121828;
+  font-weight: bold;
+}
+
+.table .table-letter {
+  color: #6b727f;
+}
+
+.table .pad-row {
+  padding: 10px 0;
+}
+
+.table .pad-row-2 {
+  padding: 15px 0;
+}
