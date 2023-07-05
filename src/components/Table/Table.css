@@ -3,6 +3,7 @@
   overflow-y: hidden;
   white-space: nowrap;
   border-radius: 10px;
+  width: 100%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -39,4 +40,24 @@
 
 .table .pad-row-2 {
   padding: 15px 0;
+}
+
+thead tr th:nth-child(1) {
+  width: 30%;
+}
+
+thead tr th:nth-child(2) {
+  width: 17.5%;
+}
+
+thead tr th:nth-child(3) {
+  width: 17.5%;
+}
+
+thead tr th:nth-child(4) {
+  width: 17.5%;
+}
+
+thead tr th:nth-child(5) {
+  width: 17.5%;
 }

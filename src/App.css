@@ -8,3 +8,9 @@
 .body-page {
   padding: 0 10px;
 }
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
