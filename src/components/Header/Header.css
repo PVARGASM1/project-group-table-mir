@@ -1,10 +1,29 @@
 .header {
   background-color: #1f2936;
   color: #fff;
-  padding: 15px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header .title {
   margin: 0;
-  font-size: 30px;
+  font-size: 25px;
+  display: flex;
+  place-items: center;
+}
+
+.header .title img {
+  width: 70px;
+}
+
+.header .menu {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+}
+
+.header .menu p {
+  font-size: 16px;
 }
