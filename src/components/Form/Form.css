@@ -32,3 +32,9 @@
 .form .product-info .select {
   width: 100%;
 }
+
+.form .button-options {
+  text-align: right;
+  width: 95%;
+  margin: 0 auto;
+}

@@ -1,15 +1,14 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import { ButtonsTable } from '../ButtonsTable'
 import './Table.css'
 
-export const Table = () => {
+export const Table = ({onClick}) => {
   const [ info, setInfo ] = useState()
 
   const getData = async () => {
-    const url = 'https://rickandmortyapi.com/api/character'
-    const res = await fetch(url)
+    const res = await fetch('https://jsonplaceholder.typicode.com/users')
     const data = await res.json()
-    setInfo([...data.results, info])
-    console.log([...data.results]);
+    setInfo(data)
   }
 
   useEffect(() => {
@@ -30,17 +29,21 @@ export const Table = () => {
         </thead>
         <tbody>
           {
-            info.map((row, index) => {
-              return (
-                <tr className='row-table' key={index}>
-                  <td className='product-letter pad-row-2'>{row.name}</td>
-                  <td className='table-letter pad-row-2'>{row.status}</td>
-                  <td className='table-letter pad-row-2'>{row.species}</td>
-                  <td className='table-letter pad-row-2'>${row.type}</td>
-                  <td className='pad-row-2'>{row.gender}</td>
+            info.map((row) => (
+              <React.Fragment key={row.id}>
+                <tr className='row-table'>
+                  <td className='product-letter pad-row-2'>{row.email}</td>
+                  <td className='table-letter pad-row-2'>{row.username}</td>
+                  <td className='table-letter pad-row-2'>{row.name}</td>
+                  <td className='table-letter pad-row-2'>${row.website}</td>
+                  <td className='pad-row-2'>
+                    <ButtonsTable optionButton={'Edit'} onClick={onClick} /> | 
+                    <br />
+                    <ButtonsTable optionButton={'Delete'} />
+                  </td>
                 </tr>
-              )
-            })
+              </React.Fragment>
+            ))
           }
         </tbody>
       </table>

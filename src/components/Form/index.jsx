@@ -1,7 +1,8 @@
 import React from 'react'
 import './Form.css'
+import { Button } from '../Button'
 
-export const Form = () => {
+export const Form = ({ option }) => {
   return (
     <form className='form'>
       <div className="product-info">
@@ -26,6 +27,17 @@ export const Form = () => {
       <div className="product-info">
         <label htmlFor="price">Price</label>
         <input type="number" id='price' className='input' placeholder='$1999,99' />
+      </div>
+
+      <div className="button-option">
+        {
+          option ?
+            <Button /> :
+          <div className="buttons-edit">
+            <Button value={'Cancel'} color={'gray-color'}/>
+            <Button value={'Update'} color={'green-color'}/>
+          </div>
+        }
       </div>
 
     </form>

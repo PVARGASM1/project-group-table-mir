@@ -1,0 +1,20 @@
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.blue-color {
+  background-color: #3d81f6;
+}
+
+.gray-color {
+  background-color: #6b727f;
+}
+
+.green-color {
+  background-color: #22c55d;
+  margin-left: 12px;
+}
