@@ -33,7 +33,7 @@ function App() {
     const rowIndex = dataAPI.findIndex(item => item.id === newRow.id)
 
     if (rowIndex !== -1) {
-      const updateRow = [...rowIndex]
+      const updateRow = [...dataAPI]
       updateRow[rowIndex] = newRow
       setDataAPI(updateRow)
       setSelected(null)
@@ -45,6 +45,12 @@ function App() {
   const handleShowForm = () => {
     setShowForm(true)
     setShowEditButtons(false)
+    setSingleRow({
+      name: '',
+      color: '',
+      category: '',
+      price: '',
+    })
   }
   
   const handleShowEditButtons = (product) => {

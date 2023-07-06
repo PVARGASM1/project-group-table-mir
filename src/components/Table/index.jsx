@@ -5,28 +5,7 @@ import './Table.css'
 export const Table = ({ 
   onClick,
   dataAPI,
-  selected,
-  setSelected,
-  setSingleRow,
-  setShowEditButtons,
-  setShowForm
 }) => {
-
-  // const handleEditRow = (item) => {
-  //   if (selected !== item.id) {
-  //     setSelected(item.id)
-  //     setSingleRow(item)
-  //   } else {
-  //     setSelected(null)
-  //     setSingleRow({
-  //       name: '',
-  //       color: '',
-  //       category: '',
-  //       price: '',
-  //     })
-  //   }
-  // }
-
   return (
     <div className='content-table'>
       <table className='table'>
@@ -50,7 +29,6 @@ export const Table = ({
                 <td className='pad-row-2'>
                   <ButtonsTable
                     optionButton={'Edit'}
-                    // onEditRow={() => handleEditRow(row)}
                     onClick={() => onClick(row)}
                   /> | 
                   {' '}
