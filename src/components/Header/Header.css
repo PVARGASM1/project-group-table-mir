@@ -2,6 +2,7 @@
   background-color: #1f2936;
   color: #fff;
   padding: 5px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -19,11 +20,21 @@
 
 .header .menu {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
   width: 50%;
 }
 
-.header .menu p {
+.header .menu h3 {
   font-size: 16px;
+}
+
+.header .menu span {
+  margin: 0 15px;
+}
+
+@media (min-width: 1024px) {
+  .header .title img {
+    margin-left: 30px;
+  }
 }

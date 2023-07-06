@@ -3,3 +3,15 @@
   color: #2363eb;
   padding: 0;
 }
+
+@media (min-width: 940px) and (max-width: 1198px) {
+  .buttons-table {
+    font-size: 16px;
+  } 
+}
+
+@media (min-width: 14400px) {
+  .buttons-table {
+    font-size: 16px;
+  } 
+}

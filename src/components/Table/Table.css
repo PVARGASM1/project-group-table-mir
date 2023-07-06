@@ -36,28 +36,15 @@
 
 .table .pad-row {
   padding: 10px 0;
+  width: 23%;
 }
 
 .table .pad-row-2 {
   padding: 15px 0;
 }
 
-thead tr th:nth-child(1) {
-  width: 30%;
-}
-
-thead tr th:nth-child(2) {
-  width: 17.5%;
-}
-
-thead tr th:nth-child(3) {
-  width: 17.5%;
-}
-
-thead tr th:nth-child(4) {
-  width: 17.5%;
-}
-
-thead tr th:nth-child(5) {
-  width: 17.5%;
+@media (min-width: 800px) {
+  .white-space {
+    display: none;
+  } 
 }

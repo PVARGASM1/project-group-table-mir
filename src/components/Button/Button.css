@@ -4,6 +4,7 @@ button {
   border-radius: 5px;
   color: #fff;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 .blue-color {
