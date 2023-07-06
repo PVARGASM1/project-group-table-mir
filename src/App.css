@@ -1,16 +1,49 @@
 #root {
-  max-width: 1280px;
+  max-width: 1640px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
-}
-
-.body-page {
-  padding: 0 10px;
 }
 
 .main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.body-page {
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.table-section {
+  width: 100%;
+}
+
+.form-section {
+  text-align: left;
+}
+
+@media (min-width: 1199px) {
+  .body-page {
+    flex-direction: row;
+  }
+
+  .table-section {
+    width: 60%;
+    margin-right: 40px;
+  }
+
+  .form-section {
+    width: 35%;
+  }
+}
+
+@media (min-width: 1199px) and (max-width: 1400px) {
+  .body-page {
+    width: 95%;
+  }
 }

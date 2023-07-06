@@ -3,6 +3,10 @@
   color: #374150;
   padding: 10px;
   border-radius: 10px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .form .product-info {
@@ -33,8 +37,28 @@
   width: 100%;
 }
 
-.form .button-options {
+.form .button-option {
   text-align: right;
   width: 95%;
   margin: 0 auto;
+}
+
+@media (min-width: 575px) and (max-width: 991px) {
+  .form .product-info .input {
+    width: 98%;
+  }
+  
+  .form .product-info .select {
+    width: 99%;
+  }
+}
+
+@media (min-width: 992px) {
+  .form .product-info .input {
+    width: 99%;
+  }
+
+  .form .product-info .select {
+    width: 100%;
+  }
 }
