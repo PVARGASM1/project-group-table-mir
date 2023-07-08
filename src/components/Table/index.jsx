@@ -25,7 +25,7 @@ export const Table = ({
                 <td className='product-letter pad-row-2'>{row.name}</td>
                 <td className='table-letter pad-row-2'>{row.color}</td>
                 <td className='table-letter pad-row-2'>{row.category}</td>
-                <td className='table-letter pad-row-2'>${row.price}</td>
+                <td className='table-letter pad-row-2'>${parseFloat(row.price).toFixed(2)}</td>
                 <td className='pad-row-2'>
                   <ButtonsTable
                     optionButton={'Edit'}

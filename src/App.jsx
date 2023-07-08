@@ -4,21 +4,11 @@ import { Button } from './components/Button'
 import { Form } from './components/Form'
 import { Header } from './components/Header'
 import { Table } from './components/Table'
-import { data as testInfo } from './assets/data'
+// import { data as testInfo } from './assets/data'
 
-// const getData = async () => {
-//   // const res = await fetch('https://jsonplaceholder.typicode.com/users')
-//   // const data = await res.json()
-
-//   setDataAPI(testInfo)
-// }
-
-// useEffect(() => {
-//   getData()
-// }, [])
 
 function App() {
-  const [ dataAPI, setDataAPI ] = useState(testInfo)
+  const [ dataAPI, setDataAPI ] = useState([])
   const [ showForm, setShowForm ] = useState(false)
   const [ showEditButtons, setShowEditButtons ] = useState(false)
   const [ selected, setSelected ] = useState(null);
@@ -28,6 +18,21 @@ function App() {
     category: '',
     price: '',
   })
+  const getData = async () => {
+    try {
+      const res = await fetch('http://localhost:3000/data')
+      const data = await res.json()
+      console.log(data)
+    
+      setDataAPI(data)
+    } catch(error){
+      console.log(error)
+    }
+    }
+
+  useEffect(() => {
+        getData()
+  }, [])
 
   const handleAddRow = (newRow) => {
     const rowIndex = dataAPI.findIndex(item => item.id === newRow.id)
