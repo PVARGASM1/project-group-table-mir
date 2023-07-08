@@ -1,0 +1,14 @@
+.body-page-authors {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.body-page-authors h3 {
+  font-size: 29px;
+  color: #1f2936;
+}
+
+.authors-section {
+  display: flex;
+  flex-direction: column;
+}

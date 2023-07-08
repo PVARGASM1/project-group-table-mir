@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import { Authors } from './components/Authors'
 import { Button } from './components/Button'
 import { Form } from './components/Form'
 import { Header } from './components/Header'
@@ -11,6 +12,8 @@ function App() {
   const [ showEditButtons, setShowEditButtons ] = useState(false)
   const [ selected, setSelected ] = useState(null);
   const [ loading, setLoading ] = useState(true)
+  const [ selectedHome, setSelectHome ] = useState(true)
+  const [ selectedAuthors, setSelectAuthors ] = useState(false)
   const [ errorMessage, setErrorMessage ] = useState(null)
   const [ singleRow, setSingleRow ] = useState({
     name: '',
@@ -60,43 +63,54 @@ function App() {
     })
   }
 
+  const selectedAuthorsButton = () => {
+    setSelectHome(!selectedHome)
+    setSelectAuthors(!selectedAuthors)
+  }
+
   return (
     <>
-      <Header />
-      <div className="body-page">
-        <div className="table-section">
-          <main className="main">
-            <h2>Product List</h2>
-            <Button color={'blue-color'} value={'Add'} onClick={handleShowForm} />
-          </main>
-          <Table
-            dataAPI={dataAPI}
-            setDataAPI={setDataAPI}
-            loading={loading}
-            errorMessage={errorMessage}
-            setShowEditButtons={setShowEditButtons}
-            setShowForm={setShowForm}
-            setSingleRow={setSingleRow}
-          />
-        </div>
-
-        {
-          showForm &&
-          <div className="form-section">
-            {
-              !showEditButtons ?
-              <h2>Add product</h2> :
-              <h2>Edit products</h2>
-            }
-            <Form
-              showEditButtons={showEditButtons}
-              singleRow={singleRow}
+      <Header
+        onClick={selectedAuthorsButton}
+      />
+      {
+        !selectedAuthors ?
+        <div className="body-page">
+          <div className="table-section">
+            <main className="main">
+              <h2>Product List</h2>
+              <Button color={'blue-color'} value={'Add'} onClick={handleShowForm} />
+            </main>
+            <Table
+              dataAPI={dataAPI}
+              setDataAPI={setDataAPI}
+              loading={loading}
+              errorMessage={errorMessage}
+              setShowEditButtons={setShowEditButtons}
+              setShowForm={setShowForm}
               setSingleRow={setSingleRow}
-              onAddRow={handleAddRow}
             />
           </div>
-        }
-      </div>
+
+          {
+            showForm &&
+            <div className="form-section">
+              {
+                !showEditButtons ?
+                <h2>Add product</h2> :
+                <h2>Edit products</h2>
+              }
+              <Form
+                showEditButtons={showEditButtons}
+                singleRow={singleRow}
+                setSingleRow={setSingleRow}
+                onAddRow={handleAddRow}
+              />
+            </div>
+          }
+        </div> :
+        <Authors />
+      }
     </>
   )
 }

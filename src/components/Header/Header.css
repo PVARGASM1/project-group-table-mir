@@ -23,6 +23,7 @@
   justify-content: flex-end;
   align-items: center;
   width: 50%;
+  margin-right: 30px;
 }
 
 .header .menu h3 {
@@ -36,5 +37,127 @@
 @media (min-width: 1024px) {
   .header .title img {
     margin-left: 30px;
+  }
+}
+
+#toggle {
+  display: none;
+}
+
+.hamburger {
+  position: absolute;
+  top: 55px;
+  right: 5%;
+  margin-left: -2em;
+  margin-top: -45px;
+  width: 3em;
+  z-index: 5;
+}
+
+.hamburger div {
+  position: relative;
+  width: 40px;
+  height: 7px;
+  border-radius: 3px;
+  background-color: #fff;
+  margin-top: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav {
+  position: fixed;
+  width: 100%;
+  height: 200px;
+  background-color: #1f2936;
+  top: -100%;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0);
+}
+
+.nav-wrapper {
+  position: relative;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 200px;
+}
+
+nav {
+  text-align: center;
+}
+
+nav button {
+  background-color: transparent;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  display: inline-block;
+  transition: color 0.2s ease-in-out;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+nav .button-1 {
+  margin-top: 70px;
+  transition: 0.7s ease-in-out;
+}
+
+nav .button-2 {
+  margin-top: 30px;
+  transition: 0.7s ease-in-out;
+}
+
+nav .button-1:hover {
+  background-color: #151c29;
+}
+
+nav .button-2:hover {
+  background-color: #151c29;
+}
+
+nav button:before {
+  content: '';
+  height: 0;
+  position: absolute;
+  width: 0.25em;
+  background-color: white;
+  left: -0.5em;
+  transition: all 0.2s ease-in-out;
+}
+
+nav button:hover {
+  color: white;
+}
+
+nav button:hover:before {
+  height: 100%;
+}
+
+#toggle:checked + .hamburger .top-bun {
+  transform: rotate(-45deg);
+  margin-top: 25px;
+}
+
+#toggle:checked + .hamburger .bottom-bun {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+
+#toggle:checked + .hamburger .meat {
+  transform: rotate(45deg);
+  margin-top: -7px;
+}
+
+#toggle:checked + .hamburger + .nav {
+  top: 0;
+  transform: scale(1);
+}
+
+@media (min-width: 768px) {
+  .nav {
+    width: 300px;
   }
 }
