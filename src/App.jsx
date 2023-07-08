@@ -4,34 +4,36 @@ import { Button } from './components/Button'
 import { Form } from './components/Form'
 import { Header } from './components/Header'
 import { Table } from './components/Table'
-// import { data as testInfo } from './assets/data'
-
 
 function App() {
   const [ dataAPI, setDataAPI ] = useState([])
   const [ showForm, setShowForm ] = useState(false)
   const [ showEditButtons, setShowEditButtons ] = useState(false)
   const [ selected, setSelected ] = useState(null);
+  const [ loading, setLoading ] = useState(true)
+  const [ errorMessage, setErrorMessage ] = useState(null)
   const [ singleRow, setSingleRow ] = useState({
     name: '',
     color: '',
     category: '',
     price: '',
   })
-  const getData = async () => {
-    try {
-      const res = await fetch('http://localhost:3000/data')
-      const data = await res.json()
-      console.log(data)
-    
-      setDataAPI(data)
-    } catch(error){
-      console.log(error)
-    }
-    }
 
+  
   useEffect(() => {
-        getData()
+    (async function getData() {
+      try {
+        const res = await fetch('http://localhost:3000/data')
+        const users = await res.json()
+        setDataAPI(users.data);
+        console.log(users.data);
+        setLoading(false)
+      } catch(error){
+        setErrorMessage(`Ups, and error happend ${error.message}`)
+      } finally {
+        setLoading(false)
+      }
+    })()
   }, [])
 
   const handleAddRow = (newRow) => {
@@ -57,12 +59,6 @@ function App() {
       price: '',
     })
   }
-  
-  const handleShowEditButtons = (product) => {
-    setShowEditButtons(true)
-    setShowForm(true)
-    setSingleRow(product)
-  }
 
   return (
     <>
@@ -74,10 +70,13 @@ function App() {
             <Button color={'blue-color'} value={'Add'} onClick={handleShowForm} />
           </main>
           <Table
-            onClick={handleShowEditButtons}
             dataAPI={dataAPI}
-            setSelected={setSelected}
-            selected={selected}
+            setDataAPI={setDataAPI}
+            loading={loading}
+            errorMessage={errorMessage}
+            setShowEditButtons={setShowEditButtons}
+            setShowForm={setShowForm}
+            setSingleRow={setSingleRow}
           />
         </div>
 

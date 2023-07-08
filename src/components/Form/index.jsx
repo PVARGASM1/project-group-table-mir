@@ -86,8 +86,8 @@ export const Form = ({
         >
           <option value={singleRow.category}>--Please choose an option--</option>
           {
-            testInfo?.map(categories => (
-              <option key={categories.id} value={categories.category}>{categories.category}</option>
+            testInfo?.map((categories, index) => (
+              <option key={index} value={categories.category}>{categories.category}</option>
             ))
           }
         </select>
