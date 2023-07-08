@@ -12,7 +12,6 @@
 }
 
 .body-page {
-  padding: 0 30px;
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -27,6 +26,12 @@
   text-align: left;
 }
 
+@media (min-width: 465px) {
+  .body-page {
+    padding: 0 30px;
+  }
+}
+
 @media (min-width: 1199px) {
   .body-page {
     flex-direction: row;
@@ -34,7 +39,7 @@
 
   .table-section {
     width: 60%;
-    margin-right: 40px;
+    margin: 0 auto;
   }
 
   .form-section {
@@ -42,7 +47,7 @@
   }
 }
 
-@media (min-width: 1199px) and (max-width: 1400px) {
+@media (max-width: 1400px) {
   .body-page {
     width: 95%;
   }

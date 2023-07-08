@@ -1,7 +1,12 @@
 import React from 'react'
 import './Header.css'
 
-export const Header = () => {
+export const Header = ({
+  onClick
+}) => {
+
+  
+
   return (
     <header className='header'>
       <section className="title">
@@ -9,10 +14,25 @@ export const Header = () => {
         <h1 className='title'>My Table</h1>
       </section>
       <div className="menu">
-        <h3>Get started</h3>
-        <span className="material-symbols-outlined">
-          menu
-        </span>
+        <div className="burger-menu">
+          <input id="toggle" type="checkbox"></input>
+
+          <label htmlFor="toggle" className="hamburger">
+            <div className="top-bun"></div>
+            <div className="meat"></div>
+            <div className="bottom-bun"></div>
+          </label>
+
+          <div className="nav">
+            <div className="nav-wrapper">
+              <nav>
+                <button onClick={onClick} className='button-1'>HOME</button>
+                <br />
+                <button onClick={onClick} className='button-2'>ABOUT</button>
+              </nav>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   )
