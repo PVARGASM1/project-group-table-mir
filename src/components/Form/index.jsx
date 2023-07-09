@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Form.css'
 import { Button } from '../Button'
 import { data as testInfo } from '../../assets/data'
@@ -16,24 +16,39 @@ export const Form = ({
       ...singleRow,
       [name]: value 
     })
+
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-
     const newRow = {
       ...singleRow,
       id: singleRow.id ? singleRow.id : Date.now(),
     }
+    const url = `http://localhost:3000/data${singleRow.id ? `/${singleRow.id}` : ''}`
+    const configFetch = {
+      method: singleRow.id ? 'PUT' : 'POST',
+      body: JSON.stringify(newRow),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }
 
-    onAddRow(newRow);
+      try{
+        const response = await fetch(url, configFetch)
+        const users = await response.json();
+        onAddRow(users.data);
 
-    setSingleRow({
-      name: '',
-      color: '',
-      category: '',
-      price: '',
-    })
+      } catch(error){
+        setErrorMessage(`Ups, something went wrong. Error: ${error}`)
+      }finally{
+        setSingleRow({
+          name: '',
+          color: '',
+          category: '',
+          price: '',
+        })
+      }
   }
 
   const handleDeleteInfo = () => {
@@ -68,7 +83,7 @@ export const Form = ({
           id='color'
           name='color'
           className='input'
-          placeholder='solver, black, white, etc'
+          placeholder='silver, black, white, etc'
           onChange={handleChange}
           value={singleRow.color}
           required
@@ -111,10 +126,20 @@ export const Form = ({
         {
           showEditButtons ?
           <div className="buttons-edit">
-            <Button onClick={handleDeleteInfo} value={'Cancel'} color={'gray-color'}/>
-            <Button value={'Update'} color={'green-color'}/>
+            <Button onClick={handleDeleteInfo}
+              value={'Cancel'}
+              color={'gray-color'}
+            />
+            <Button 
+             onClick={handleSubmit} 
+             value={'Update'}
+             color={'green-color'}
+             />
           </div> :
-          <Button onAddRow={onAddRow} />
+          <Button 
+            type="submit"
+            onClick={handleSubmit}
+          />
         }
       </div>
 

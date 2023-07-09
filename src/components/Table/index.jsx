@@ -10,6 +10,7 @@ export const Table = ({
   setShowEditButtons,
   setShowForm,
   setSingleRow,
+  setErrorMessage,
 }) => {
 
   const handleShowEditButtons = (product) => {
@@ -18,9 +19,24 @@ export const Table = ({
     setSingleRow(product)
   }
 
-  const handleDeleteRow = (id) => {
-    const updatedDataAPI = dataAPI.filter((row) => row.id !== id);
-    setDataAPI([...updatedDataAPI])
+  const handleDeleteRow = async (id) => {
+
+    const url = `http://localhost:3000/data/${id}`
+    const configFetch = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }
+
+    try {
+      await fetch(url, configFetch);
+      const updatedDataAPI = dataAPI.filter((row) => row.id !== id);
+      setDataAPI(updatedDataAPI);
+      
+    } catch(error){
+        setErrorMessage(`Ups, something went wrong. Error: ${error}`)
+      }
   };
   
   
