@@ -89,6 +89,7 @@ function App() {
               setShowEditButtons={setShowEditButtons}
               setShowForm={setShowForm}
               setSingleRow={setSingleRow}
+              setErrorMessage={setErrorMessage}
             />
           </div>
 
