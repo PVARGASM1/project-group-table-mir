@@ -21,7 +21,7 @@ export const Table = ({
 
   const handleDeleteRow = async (id) => {
 
-    const url = `http://localhost:3000/data/${id}`
+    const url = `${import.meta.env.VITE_API_BASE_URL}/${id}`
     const configFetch = {
       method: 'DELETE',
       headers: {
