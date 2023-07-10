@@ -6,8 +6,6 @@ export const Header = ({
   onClick
 }) => {
 
-  
-
   return (
     <header className='header'>
       <section className="title">
@@ -29,7 +27,7 @@ export const Header = ({
               <nav>
                 <button onClick={onClick} className='button-1'>HOME</button>
                 <br />
-                <button onClick={onClick} className='button-2'>ABOUT</button>
+                <button onClick={onClick} className='button-2'>CONTACT</button>
               </nav>
             </div>
           </div>
