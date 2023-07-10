@@ -96,7 +96,6 @@ export const Table = ({
                 <tr>
                   <td colSpan="5">
                     <p>There's no data in this table, to add items click on the "Add" button.</p>
-                    {/* <img src="https://usagif.com/wp-content/uploads/upgifsok/tumbleweed-acegif-28.gif" alt="gif" /> */}
                     <img src="https://media.tenor.com/J3mNIbj6A4wAAAAM/empty-shelves-john-travolta.gif" alt="Empty table" />
                   </td>
                 </tr>
