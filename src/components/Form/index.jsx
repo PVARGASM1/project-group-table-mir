@@ -25,7 +25,7 @@ export const Form = ({
       ...singleRow,
       id: singleRow.id ? singleRow.id : Date.now(),
     }
-    const url = `http://localhost:3000/data${singleRow.id ? `/${singleRow.id}` : ''}`
+    const url = `${import.meta.env.VITE_API_BASE_URL}/data${singleRow.id ? `/${singleRow.id}` : ''}`
     const configFetch = {
       method: singleRow.id ? 'PUT' : 'POST',
       body: JSON.stringify(newRow),

@@ -26,10 +26,10 @@ function App() {
   useEffect(() => {
     (async function getData() {
       try {
-        const res = await fetch('http://localhost:3000/data')
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/data`)
         const users = await res.json()
         setDataAPI(users.data);
-        console.log(users.data);
+        
         setLoading(false)
       } catch(error){
         setErrorMessage(`Ups, and error happend ${error.message}`)
